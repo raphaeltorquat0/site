@@ -1,0 +1,145 @@
+/* System fonts on purpose: visitors are on Macs, and the page loads nothing from anywhere else. */
+:root {
+  --ink: #14202b;
+  --muted: #4c5b68;
+  --paper: #eef3f5;
+  --band: #dfe8ec;
+  --notch: #000;
+  --on-notch: #f4f7f8;
+  --lagoon: #0b6e77;
+  --dusk: #574796;
+  --graph: #2b5aa6;
+  --display: ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  --text: ui-serif, "New York", Georgia, serif;
+  --measure: 66ch;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e9eff2;
+    --muted: #a6b4be;
+    --paper: #17202a;
+    --band: #1f2b37;
+    --lagoon: #58c5cd;
+    --dusk: #b3a6ee;
+    --graph: #8db2f2;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 1.125rem/1.6 var(--text);
+}
+
+h1, h2, h3, nav, .button, footer { font-family: var(--display); }
+h2 { font-size: 1.5rem; line-height: 1.2; margin: 3rem 0 .75rem; }
+h3 { font-size: 1.125rem; margin: 1.5rem 0 .25rem; }
+p, ul, pre { max-width: var(--measure); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent, var(--graph)); outline-offset: 3px; }
+
+.lagoon { --accent: var(--lagoon); }
+.dusk { --accent: var(--dusk); }
+.graph { --accent: var(--graph); }
+
+/* The notch is the navigation, and the one thing on the site that moves. */
+.island {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem 1.75rem;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: calc(100% - 1.5rem);
+  min-height: 3.25rem;
+  margin: 0 auto;
+  padding: .5rem 2rem;
+  background: var(--notch);
+  color: var(--on-notch);
+  border-radius: 0 0 1.5rem 1.5rem;
+  transform-origin: top;
+  animation: surface .7s cubic-bezier(.3, 1.4, .5, 1) both;
+}
+
+.island a {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+.island a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.island a[aria-current] { text-decoration: underline; text-underline-offset: .2em; }
+.island img { width: 1.5rem; height: 1.5rem; }
+
+@keyframes surface {
+  from { clip-path: inset(0 38% 40% 38% round 0 0 1.5rem 1.5rem); }
+  to { clip-path: inset(0 0 0 0 round 0 0 1.5rem 1.5rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .island { animation: none; }
+}
+
+main { padding: 0 1.5rem 4rem; }
+.intro, .page { max-width: 44rem; margin: 0 auto; }
+.intro { padding: 4.5rem 0 3.5rem; }
+.intro h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); line-height: 1.08; margin: 0 0 1rem; }
+.intro p { margin: 0; color: var(--muted); }
+
+.app {
+  padding: 2.75rem max(1.5rem, calc(50vw - 22rem));
+  margin: 0 -1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+}
+.app:nth-of-type(even) { background: var(--band); }
+.app h2 { margin: 0; font-size: clamp(2.5rem, 9vw, 5rem); line-height: 1.02; letter-spacing: -.02em; color: var(--accent); }
+.app h2 a { text-decoration: none; }
+.app h2 a:hover { text-decoration: underline; text-decoration-thickness: .06em; text-underline-offset: .12em; }
+.app p { margin: .75rem 0 0; }
+
+.page header { display: flex; gap: 1.25rem; align-items: center; padding: 3.5rem 0 1.5rem; }
+.page header img { width: 6rem; height: 6rem; flex: none; }
+.page h1 { margin: 0; font-size: clamp(2.25rem, 8vw, 4rem); line-height: 1.05; letter-spacing: -.02em; color: var(--accent); }
+.lede { font-size: 1.3125rem; line-height: 1.45; margin-top: 0; }
+
+.button {
+  display: inline-block;
+  padding: .625rem 1.25rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--paper);
+  font-weight: 600;
+  text-decoration: none;
+}
+.button:hover { filter: brightness(1.12); }
+
+pre {
+  overflow-x: auto;
+  padding: .875rem 1rem;
+  border-radius: .5rem;
+  background: var(--band);
+  font: .9375rem/1.5 ui-monospace, Menlo, monospace;
+}
+
+.shots { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+.shots img { max-width: min(100%, 20rem); height: auto; }
+
+details { border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); padding: .625rem 0; }
+summary { cursor: pointer; font-family: var(--display); font-weight: 600; }
+summary time { font-weight: 400; color: var(--muted); margin-left: .5rem; }
+
+footer {
+  padding: 2rem 1.5rem 3rem;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--muted);
+}
+footer a { margin: 0 .5rem; }
+footer p { margin: 1rem auto 0; }

@@ -1,0 +1,53 @@
+[
+  {
+    "slug": "ilha",
+    "name": "Ilha",
+    "repo": "Ilha",
+    "color": "lagoon",
+    "tagline": "Turns the notch into a small island for what is happening on your Mac.",
+    "description": "Ilha sits around the notch and shows what you need without a window: now playing, a Pomodoro timer, the volume and brightness display, a clipboard history, a shelf for files, and your Claude Code sessions with their approvals.",
+    "requirements": [
+      "macOS 14 Sonoma or later",
+      "Apple Silicon"
+    ],
+    "privacy": "Ilha has no accounts and no telemetry. Clipboard history and files stay on this Mac. Its optional local API only listens on this machine and needs a token. The only internet request it can make is the update check, and that only runs if you allow it.",
+    "screenshots": []
+  },
+  {
+    "slug": "quietbar",
+    "name": "Quietbar",
+    "repo": "Quietbar",
+    "color": "dusk",
+    "tagline": "Controls Sony headphones from the menu bar, without the phone app.",
+    "description": "Quietbar talks directly to your headphones over Bluetooth: noise cancelling and ambient sound, equalizer, multipoint, touch panel settings, battery in the menu bar, global shortcuts, and automatic profiles by app or Wi-Fi network. Tested on the WH-1000XM5. Other models are listed in the repository. Independent project, not affiliated with or endorsed by Sony.",
+    "requirements": [
+      "macOS 14 Sonoma or later",
+      "Apple Silicon or Intel",
+      "Headphones already paired with the Mac"
+    ],
+    "privacy": "Quietbar has no accounts and no telemetry, and it makes no internet requests. Your settings stay on this Mac, and everything between the app and your headphones goes over Bluetooth.",
+    "screenshots": [
+      {
+        "file": "painel-claro.png",
+        "alt": "Quietbar panel in light mode, with sound mode, equalizer and battery"
+      },
+      {
+        "file": "painel-escuro.png",
+        "alt": "Quietbar panel in dark mode"
+      }
+    ]
+  },
+  {
+    "slug": "dungeondrafter",
+    "name": "DungeonDrafter",
+    "repo": "DungeonDrafter",
+    "color": "graph",
+    "tagline": "Draws battle maps for tabletop RPGs, in 2D and 3D.",
+    "description": "DungeonDrafter is a native map editor for game masters. Draw a floor plan, switch to an orbiting 3D view of the same scene, browse your own asset library, and export the finished map to FoundryVTT.",
+    "requirements": [
+      "macOS 15 Sequoia or later"
+    ],
+    "privacy": "DungeonDrafter has no accounts and no telemetry, and it makes no internet requests. Your maps and assets stay on this Mac.",
+    "screenshots": []
+  }
+]
