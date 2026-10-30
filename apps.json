@@ -1,16 +1,16 @@
 [
   {
-    "slug": "ilha",
-    "name": "Ilha",
-    "repo": "Ilha",
+    "slug": "quietisland",
+    "name": "QuietIsland",
+    "repo": "QuietIsland",
     "color": "lagoon",
     "tagline": "Turns the notch into a small island for what is happening on your Mac.",
-    "description": "Ilha sits around the notch and shows what you need without a window: now playing, a Pomodoro timer, the volume and brightness display, a clipboard history, a shelf for files, and your Claude Code sessions with their approvals.",
+    "description": "QuietIsland sits around the notch and shows what you need without a window: now playing, a Pomodoro timer, the volume and brightness display, a clipboard history, a shelf for files, and your Claude Code sessions with their approvals.",
     "requirements": [
       "macOS 14 Sonoma or later",
       "Apple Silicon"
     ],
-    "privacy": "Ilha has no accounts and no telemetry. Clipboard history and files stay on this Mac. Its optional local API only listens on this machine and needs a token. The only internet request it can make is the update check, and that only runs if you allow it.",
+    "privacy": "QuietIsland has no accounts and no telemetry. Clipboard history and files stay on this Mac. Its optional local API only listens on this machine and needs a token. The only internet request it can make is the update check, and that only runs if you allow it.",
     "screenshots": []
   },
   {
