@@ -20,3 +20,4 @@
 | 16 | `demo.upcoming` em `apps.json` | Mostra "Coming in the next version" na seção de automação, que descreve a 1.4.0. Retire a flag ao publicar a 1.4.0. |
 | 17 | Links relativos | O site roda em `/site/`. Todo link interno e asset usa caminho relativo à página, então nada depende do subcaminho. |
 | 18 | Build exige Python 3.12+ | `build.py` usa barra invertida dentro de f-string. O `ubuntu-latest` já traz essa versão, sem `setup-python`. |
+| 19 | Ambiente `github-pages` aceita `main` | O ambiente foi criado permitindo só a branch `release`, e o deploy era recusado antes do primeiro passo. A regra de `main` foi adicionada à política do ambiente. |
