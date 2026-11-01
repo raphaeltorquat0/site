@@ -131,6 +131,8 @@ pre {
 .shots { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
 .shots img { max-width: min(100%, 20rem); height: auto; }
 
+.upcoming { font-family: var(--display); font-weight: 600; color: var(--accent); }
+
 /* Only the video for this theme and shape is shown. */
 .demo { margin-top: 1rem; }
 .demo video { display: none; width: 100%; height: auto; border-radius: .75rem; }

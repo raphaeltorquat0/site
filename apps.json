@@ -3,6 +3,7 @@
     "slug": "quietisland",
     "name": "QuietIsland",
     "repo": "QuietIsland",
+    "hidden": true,
     "color": "lagoon",
     "tagline": "Turns the notch into a small island for what is happening on your Mac.",
     "description": "QuietIsland sits around the notch and shows what you need without a window: now playing, a Pomodoro timer, the volume and brightness display, a clipboard history, a shelf for files, and your Claude Code sessions with their approvals.",
@@ -10,7 +11,7 @@
       "macOS 14 Sonoma or later",
       "Apple Silicon"
     ],
-    "privacy": "QuietIsland has no accounts and no telemetry. Clipboard history and files stay on this Mac. Its optional local API only listens on this machine and needs a token. The only internet request it can make is the update check, and that only runs if you allow it.",
+    "privacy": "QuietIsland has no accounts and no telemetry. Clipboard history and files stay on this Mac. It can make two internet requests, both optional: the update check, which asks first, and synced lyrics, off by default, which send the title, artist, album and length of the current track to lrclib.net. The first time you use a language for Live Captions, macOS downloads its model from Apple, with no audio or text. The optional local API only listens on this machine and needs a token.",
     "screenshots": []
   },
   {
@@ -38,6 +39,7 @@
     ],
     "demo": {
       "heading": "Automation",
+      "upcoming": true,
       "text": "When a call starts, Quietbar switches to noise cancelling on its own. When the call ends, your previous mode comes back. It works with any calling app, because Quietbar only checks whether the microphone is in use. It never listens to the audio.",
       "alt": "The Quietbar panel changes from Ambient to Noise cancelling when a call starts, and back when the call ends",
       "folder": "automation"
@@ -47,6 +49,7 @@
     "slug": "dungeondrafter",
     "name": "DungeonDrafter",
     "repo": "DungeonDrafter",
+    "hidden": true,
     "color": "graph",
     "tagline": "Draws battle maps for tabletop RPGs, in 2D and 3D.",
     "description": "DungeonDrafter is a native map editor for game masters. Draw a floor plan, switch to an orbiting 3D view of the same scene, browse your own asset library, and export the finished map to FoundryVTT.",

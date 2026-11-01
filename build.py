@@ -15,10 +15,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 DIST = ROOT / "dist"
-ORG = "{{ORG_NAME}}"
-BMC = "https://buymeacoffee.com/{{BMC_USERNAME}}"
-SPONSORS = "https://github.com/sponsors/{{GITHUB_SPONSORS_USERNAME}}"
-DOMAIN = "{{SITE_DOMAIN}}"
+ORG = "raphaeltorquat0"
+BMC = "https://buymeacoffee.com/raphaeltorquato"
+DOMAIN = "raphaeltorquat0.github.io/site"
 
 
 def fetch_releases(repo):
@@ -106,7 +105,6 @@ def page(title, description, body, depth, current=None, apps=()):
 </main>
 <footer>
 <a href="{BMC}">Buy Me a Coffee</a>
-<a href="{SPONSORS}">GitHub Sponsors</a>
 <a href="https://github.com/{ORG}">GitHub</a>
 <p>This site has no analytics and sets no cookies.</p>
 </footer>
@@ -153,8 +151,9 @@ def demo_section(app):
                 f'<video class="demo-{name} demo-{theme}" autoplay muted loop playsinline preload="metadata" '
                 f'width="{width}" height="{height}" poster="{base}-{name}-{theme}-en.webp" aria-label="{alt}">{sources}</video>'
             )
+    upcoming = '<p class="upcoming">Coming in the next version</p>\n' if demo.get("upcoming") else ""
     return f"""<h2>{html.escape(demo["heading"])}</h2>
-<p>{html.escape(demo["text"])}</p>
+{upcoming}<p>{html.escape(demo["text"])}</p>
 <div class="demo">{''.join(videos)}</div>
 """
 
@@ -185,13 +184,13 @@ def app_page(app, releases):
 <h2>Privacy</h2>
 <p>{html.escape(app['privacy'])}</p>
 <h2>Support {app['name']}</h2>
-<p>Every feature is free. If the app helps you, <a href="{BMC}">buy me a coffee</a> or <a href="{SPONSORS}">sponsor the work on GitHub</a>.</p>
+<p>Every feature is free. If the app helps you, <a href="{BMC}">buy me a coffee</a>.</p>
 <p><a href="https://github.com/{ORG}/{repo}">Source code</a> and <a href="https://github.com/{ORG}/{repo}/issues">issues</a> are on GitHub.</p>
 </article>"""
     return page(f"{app['name']} for Mac", app["tagline"], body, 1, slug, APPS)
 
 
-APPS = json.loads((ROOT / "apps.json").read_text())
+APPS = [a for a in json.loads((ROOT / "apps.json").read_text()) if not a.get("hidden")]
 
 
 def main():
