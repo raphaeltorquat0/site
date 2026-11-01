@@ -96,6 +96,7 @@ def page(title, description, body, depth, current=None, apps=()):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(description)}">
+<link rel="icon" href="{prefix}assets/quietbar/icon.png">
 <link rel="stylesheet" href="{prefix}style.css">
 </head>
 <body>
