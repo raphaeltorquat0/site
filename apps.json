@@ -25,7 +25,7 @@
       "Apple Silicon or Intel",
       "Headphones already paired with the Mac"
     ],
-    "privacy": "Quietbar has no accounts and no telemetry, and it makes no internet requests. Your settings stay on this Mac, and everything between the app and your headphones goes over Bluetooth.",
+    "privacy": "Quietbar has no accounts, and your settings stay on this Mac. Everything between the app and your headphones goes over Bluetooth. The only internet request the app makes is the Sparkle update check, once a day, which you can turn off. If you use a Wi-Fi profile, macOS asks for Location so the app can read the network name, and it is used for nothing else.",
     "screenshots": [
       {
         "file": "painel-claro.png",
@@ -35,7 +35,13 @@
         "file": "painel-escuro.png",
         "alt": "Quietbar panel in dark mode"
       }
-    ]
+    ],
+    "demo": {
+      "heading": "Automation",
+      "text": "When a call starts, Quietbar switches to noise cancelling on its own. When the call ends, your previous mode comes back. It works with any calling app, because Quietbar only checks whether the microphone is in use. It never listens to the audio.",
+      "alt": "The Quietbar panel changes from Ambient to Noise cancelling when a call starts, and back when the call ends",
+      "folder": "automation"
+    }
   },
   {
     "slug": "dungeondrafter",

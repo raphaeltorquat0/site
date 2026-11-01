@@ -47,7 +47,7 @@ a { color: inherit; }
 .dusk { --accent: var(--dusk); }
 .graph { --accent: var(--graph); }
 
-/* The notch is the navigation, and the one thing on the site that moves. */
+/* The notch is the navigation, and the one piece of interface that moves. */
 .island {
   display: flex;
   justify-content: center;
@@ -130,6 +130,15 @@ pre {
 
 .shots { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
 .shots img { max-width: min(100%, 20rem); height: auto; }
+
+/* Only the video for this theme and shape is shown. */
+.demo { margin-top: 1rem; }
+.demo video { display: none; width: 100%; height: auto; border-radius: .75rem; }
+
+@media (min-width: 601px) and (prefers-color-scheme: light) { .demo .demo-16x10.demo-light { display: block; } }
+@media (min-width: 601px) and (prefers-color-scheme: dark) { .demo .demo-16x10.demo-dark { display: block; } }
+@media (max-width: 600px) and (prefers-color-scheme: light) { .demo .demo-9x16.demo-light { display: block; } }
+@media (max-width: 600px) and (prefers-color-scheme: dark) { .demo .demo-9x16.demo-dark { display: block; } }
 
 details { border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); padding: .625rem 0; }
 summary { cursor: pointer; font-family: var(--display); font-weight: 600; }
