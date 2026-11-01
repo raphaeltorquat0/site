@@ -130,6 +130,34 @@ def home(apps):
     return page("Mac apps", "Free, open source, native apps for the Mac.", body, 0, "home", apps)
 
 
+def demo_section(app):
+    """One <video> per theme and shape, and CSS shows one: a poster can't depend on a media query.
+
+    Every <source> needs prefers-reduced-motion: no-preference, so with reduced motion nothing
+    matches, no video is requested, and the poster stays.
+    """
+    demo = app.get("demo")
+    if not demo:
+        return ""
+    base = f'../assets/{app["slug"]}/{demo["folder"]}/automation'
+    alt = html.escape(demo["alt"])
+    videos = []
+    for name, width, height, shape in (("16x10", 1600, 1000, "(min-width: 601px)"), ("9x16", 1080, 1920, "(max-width: 600px)")):
+        for theme in ("light", "dark"):
+            media = f"(prefers-reduced-motion: no-preference) and {shape} and (prefers-color-scheme: {theme})"
+            sources = "".join(
+                f'<source src="{base}-{name}-{theme}-en.{kind}" type="video/{kind}" media="{media}">' for kind in ("webm", "mp4")
+            )
+            videos.append(
+                f'<video class="demo-{name} demo-{theme}" autoplay muted loop playsinline preload="metadata" '
+                f'width="{width}" height="{height}" poster="{base}-{name}-{theme}-en.webp" aria-label="{alt}">{sources}</video>'
+            )
+    return f"""<h2>{html.escape(demo["heading"])}</h2>
+<p>{html.escape(demo["text"])}</p>
+<div class="demo">{''.join(videos)}</div>
+"""
+
+
 def app_page(app, releases):
     slug, repo = app["slug"], app["repo"]
     shots = "".join(
@@ -146,7 +174,7 @@ def app_page(app, releases):
 <p class="lede">{html.escape(app['tagline'])}</p>
 <p>{html.escape(app['description'])}</p>
 <p><a class="button" href="https://github.com/{ORG}/{repo}/releases/latest">Download {app['name']}</a></p>
-{shots_section}
+{demo_section(app)}{shots_section}
 <h2>Requirements</h2>
 <ul>{requirements}</ul>
 <h2>Install with Homebrew</h2>

@@ -6,7 +6,7 @@ Static site for the portfolio. Python standard library only, no framework, no an
 
 ```sh
 python3 build.py        # writes dist/
-open dist/index.html
+python3 -m http.server 8765 --directory dist   # videos need a server, not file://
 ```
 
 Apps live in `apps.json`, images in `assets/<slug>/`. Changelogs are read from GitHub Releases at build time. The site rebuilds on every push and once a day.
